@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link type="text/css" href="//pubchem.ncbi.nlm.nih.gov/jquery/jquery-ui-1.8.23.scroll.min.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script type="text/javascript" src="//pubchem.ncbi.nlm.nih.gov/jquery/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="//pubchem.ncbi.nlm.nih.gov/jquery/jquery-ui-1.8.23.multiselect.min.js"></script>
+    <title> <%= title %> </title>
+  </head>
+  <body>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="ui-widget">
+             <input type="text" id="txtChemSearch" name="chemicals" style="width:400px;"/>
+         </div>
+         <div>
+           <input type="button" id="btnChemSearch" value="Search" onclick="search()">
+         </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+
+          //add PubChem autofill handler for textbox
+          PubChemJQuery.pcautocp({
+              dictionary: "pc_compoundnames",
+              fieldname: "chemicals",
+              multiSelect: false
+          });
+
+          //add keyevent for textbox
+          $("#txtChemSearch").keyup(function(event){
+            if (event.keyCode == 13)
+            {
+              $("#btnChemSearch").click();
+            }
+          });
+      });
+
+      function search()
+      {
+        alert('Searching for:'+$("#txtChemSearch").val());
+      }
+
+    </script>
+
+  </body>
+</html>
