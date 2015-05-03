@@ -27,7 +27,7 @@ app.use('/', require('./routes/index'));
 app.use('/test', require('./routes/test'));
 app.use('/users', require('./routes/users'));
 app.use('/searchChemical', require('./routes/searchChemical'));
-
+app.use('/searchChemical2', require('./routes/searchChemical2'));
 
 
 // app.get('/', function(req, res) {
